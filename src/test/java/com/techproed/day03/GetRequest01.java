@@ -1,10 +1,11 @@
-package com.techproed.day01;
+package com.techproed.day03;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+
 public class GetRequest01 {
 
     /*
