@@ -63,6 +63,7 @@ public class GetRequest10 extends TestBaseDummyRestApi {
         List<Integer> yasListe = json.getList("data.findAll{it.employee_age<30}.employee_age");
         System.out.println(yasListe);
 
+        //yasListe siralayip sonra bakacagiz.
         Collections.sort(yasListe);
         Assert.assertEquals(Integer.valueOf(23), yasListe.get(yasListe.size()-1));
 
@@ -70,7 +71,7 @@ public class GetRequest10 extends TestBaseDummyRestApi {
 //        3)Maası 350000 den büyük olan tüm employee name’leri ekrana yazdırın ve
 //        bunların içerisinde “Charde Marshall” olduğunu test edin
                 //==> burada sadce ==>.employee_name olarak aratmak yeterli
-        List<Integer> maasListesindenName = json.getList("data.findAll{it.employee_salary>350000}.employee_name");
+        List<String> maasListesindenName = json.getList("data.findAll{it.employee_salary>350000}.employee_name");
         System.out.println(maasListesindenName); //[Cedric Kelly, Brielle Williamson, Charde Marshall, Tatyana Fitzpatrick, Paul Byrd, Yuri Berry]
         Assert.assertTrue(maasListesindenName.contains("Charde Marshall"));
 
