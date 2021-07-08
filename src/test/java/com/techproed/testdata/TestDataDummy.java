@@ -75,7 +75,33 @@ public class TestDataDummy {
         return expectedDataMap;
 
     }
+
+    //Gonderecegim request datayi olusturduk
+    public HashMap<String, Object> setUpPostData3(){
+        HashMap<String, Object> requestBodyMap= new HashMap<>();
+
+        requestBodyMap.put("name","Ahmet Aksoy");
+        requestBodyMap.put("salary",1000);
+        requestBodyMap.put("age",18);
+        requestBodyMap.put("profile_image", "");
+
+        return requestBodyMap;
+        }
+
+    public HashMap<String, Object> setUpTestData4(){
+        HashMap<String, Object> expectedDataMap= new HashMap<>();
+        expectedDataMap.put("statusCode", 200);
+        expectedDataMap.put("status" , "success");
+        expectedDataMap.put("message", "Successfully! Record has been added.");
+
+        return expectedDataMap;
+
     }
+    }
+
+
+
+
 
 
 

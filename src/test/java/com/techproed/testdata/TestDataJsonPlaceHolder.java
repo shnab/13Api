@@ -1,8 +1,13 @@
 package com.techproed.testdata;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 
 public class TestDataJsonPlaceHolder {
+
+    //bunu  burada tanimliyorum ki class PostRequest03 icinde testdata olmasin
+    public int statusCode =201;
 
     //deger dondurebilmesi icin return type HashMap<String, Object>
     //expectedDataMap dondurduk
@@ -19,4 +24,39 @@ public class TestDataJsonPlaceHolder {
 
         return expectedData;
     }
+
+
+    public JSONObject setUpPostData2(){
+            /*
+         }
+     "userId": 55,
+     "title": "Tidy your room",
+     "completed": false
+   }
+     */
+        JSONObject jsonRequestBody =new JSONObject();
+        jsonRequestBody.put("userId", 55);
+        jsonRequestBody.put("title", "Tidy your room");
+        jsonRequestBody.put("completed",false);
+
+        return jsonRequestBody ;
+    }
+
+
+    public JSONObject setUpPutData01(){
+            /*
+              {
+              "userId": 21,
+              "title": "Wash the dishes",
+              "completed": false
+             }
+     */
+        JSONObject requestBody =new JSONObject();
+        requestBody.put("userId", 21);
+        requestBody.put("title", "Wash the dishes");
+        requestBody.put("completed",false);
+
+        return requestBody ;
+    }
+
 }
