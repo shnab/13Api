@@ -3,8 +3,10 @@ package com.techproed.day11;
 import com.techproed.testbase.TestBaseJsonPlaceHolder;
 import com.techproed.testdata.TestDataJsonPlaceHolder;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
@@ -38,7 +40,7 @@ seklindeki kaydi;
     @Test
     public void test(){
         spec01.pathParams("parametre1", "todos",
-                            "parametre2", "198");
+                            "parametre2", 198);
 
         //expected- request data
         TestDataJsonPlaceHolder testData = new TestDataJsonPlaceHolder();
@@ -56,12 +58,16 @@ seklindeki kaydi;
                 .put("/{parametre1}/{parametre2}");
         response.prettyPrint();
 
+        //
+        JsonPath jsonPath =response.jsonPath();
+        //boyle yazdirabiliriz
+        jsonPath.prettyPrint();
 
-
-
+        Assert.assertEquals(200, response.getStatusCode());
+        Assert.assertEquals(requestBody.getInt("userId"), jsonPath.getInt("userId"));
+        Assert.assertEquals(requestBody.getString("title"), jsonPath.getString("title"));
+        Assert.assertEquals(requestBody.getBoolean("completed"), jsonPath.getBoolean("completed"));
 
     }
-
-
 
 }

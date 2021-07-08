@@ -1,5 +1,7 @@
 package com.techproed.testdata;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -95,8 +97,31 @@ public class TestDataDummy {
         expectedDataMap.put("message", "Successfully! Record has been added.");
 
         return expectedDataMap;
-
     }
+
+    public JSONObject setUpDelete(){
+        /*
+            {
+        "status": "success",
+            "data": "2",
+            "message": "Successfully! Record has been deleted"
+    }
+         */
+        JSONObject expectedDataMap= new  JSONObject();
+        expectedDataMap.put("status" , "success");
+        expectedDataMap.put("data", "2");
+        expectedDataMap.put("message", "Successfully! Record has been deleted");
+        //statusCode ==> bu kismi Body icersindfe gondermeyecegimiz icin burada map icine koyduk,
+        // yoksa koyamayiz.Konu ile ilgisi yok
+        expectedDataMap.put("statusCode", 200);
+
+
+        return expectedDataMap;
+    }
+
+
+
+
     }
 
 

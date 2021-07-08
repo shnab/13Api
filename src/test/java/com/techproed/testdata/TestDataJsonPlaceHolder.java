@@ -59,4 +59,34 @@ public class TestDataJsonPlaceHolder {
         return requestBody ;
     }
 
+    public JSONObject setUpPatchData01() {
+    /*
+       {
+      "title": "API calismaliyim"
+     }
+     */
+
+         JSONObject requestBody =new JSONObject();
+         requestBody.put("title", "API calismaliyim");
+
+        return requestBody ;
+    }
+
+    public JSONObject setUpExpectedBodyPatch(){
+            /*
+        {
+         "userId": 10,
+         "title": "API calismaliyim"
+         "completed": true,
+         "id": 198
+        }
+     */
+        JSONObject expectedBody =new JSONObject();
+        expectedBody.put("userId", 10);
+        expectedBody.put("title", "API calismaliyim");
+        expectedBody.put("completed",true);
+
+        return expectedBody;
+    }
+
 }
